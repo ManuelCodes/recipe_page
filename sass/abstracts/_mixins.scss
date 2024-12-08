@@ -1,0 +1,94 @@
+@mixin text-preset-header-h1 {
+    //
+}
+
+@mixin text-preset-header-h2 {
+    font-family: 'Young Serif Regular';
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: $color-brown-800;
+    font-weight: 500;
+}
+
+@mixin text-preset-p {
+    font-family: 'Oufit Regular';
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    font-weight: 300;
+}
+
+@mixin text-preset-p-bold {
+    font-family: 'Oufit Bold';
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0px;
+}
+
+@mixin text-preset-p-semibold {
+    font-family: 'Oufit SemiBold';
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    font-weight: 500;
+}
+
+//MEDIA QUERY MANAGER
+/*
+0-600px:      phone
+600-900px:    tablet portraing
+900-1200px:   tablet landscape
+1200-1800px:  is where our normal styles apply
+1800px + :    Big Desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: BASE + typographu > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == phone-prototype {
+        @media (max-width: 23.44em) {@content}; //375px
+    }
+
+    @if $breakpoint == phone-488px {
+        @media (max-width: 30.5em) {@content};
+    }
+
+    @if $breakpoint == phone-540px {
+        @media (max-width: 33.75em) {@content};
+    }
+
+    @if $breakpoint == phone-613px {
+        @media (max-width: 38.31em) {@content};
+    }
+
+    @if $breakpoint == tab-prototype {
+        @media (max-width: 48em) {@content}; //768px
+    }
+
+    ////769px - 772px
+    @if $breakpoint == tab-port-784px {
+        @media (max-width: 49em) {@content}; //784px
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {@content}; //900px
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {@content}; //1200px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {@content}; //1800px
+    }
+}

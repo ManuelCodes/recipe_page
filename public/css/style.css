@@ -1,0 +1,583 @@
+/*
+0-600px:      phone
+600-900px:    tablet portraing
+900-1200px:   tablet landscape
+1200-1800px:  is where our normal styles apply
+1800px + :    Big Desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: BASE + typographu > general layout + grid > page layout > components
+
+1em = 16px
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  min-height: 100%;
+  /*
+      @include respond(big-desktop) {
+          font-size: 75%; //1rem = 12, 12/16
+      }*/
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 70%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 49em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 48em) {
+  html {
+    font-size: 43.75%;
+  }
+}
+@media (max-width: 38.31em) {
+  html {
+    font-size: 37.5%;
+  }
+}
+@media (max-width: 30.5em) {
+  html {
+    font-size: 31.25;
+  }
+}
+@media (max-width: 23.44em) {
+  html {
+    font-size: 18.75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  height: 100%;
+  /*
+  width: 100%;
+
+  display: flex;
+  justify-content: center;*/
+}
+
+h1 {
+  font-family: "Young Serif Regular";
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+@media (max-width: 23.44em) {
+  h1 {
+    font-size: 37px;
+  }
+}
+
+h2 {
+  font-family: "Young Serif Regular";
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #854632;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: "Oufit SemiBold";
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #7A284E;
+}
+
+p {
+  font-family: "Oufit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 300;
+  /*
+  font-family: 'Outfit Regular';
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 300;*/
+}
+
+#root {
+  height: 100%;
+  background-color: #F3E5D7;
+  padding: 12.8rem 4.8rem;
+  display: flex;
+  justify-content: center;
+  /*
+  @media (max-width: 38.31em) { //width < 613px?
+      padding: 0;
+  }*/
+  /*
+      @if $breakpoint == phone-540px {
+          @media (max-width: 33.75em) {@content};
+      }
+
+      @if $breakpoint == phone-613px {
+          @media (max-width: 38.31em) {@content};
+      }
+  */
+}
+@media (max-width: 49em) {
+  #root {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 48em) {
+  #root {
+    padding: 18.29rem 10.86rem;
+  }
+}
+@media (max-width: 38.31em) {
+  #root {
+    padding: 0;
+  }
+}
+@media (max-width: 23.44em) {
+  #root {
+    padding: 0;
+  }
+}
+
+@font-face {
+  font-family: "Young Serif Regular";
+  src: url("assets/fonts/young-serif/YoungSerif-Regular.ttf");
+}
+@font-face {
+  font-family: "Oufit Regular";
+  src: url("assets/fonts/outfit/Outfit-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Oufit Bold";
+  src: url("assets/fonts/outfit/Outfit-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Oufit SemiBold";
+  src: url("assets/fonts/outfit/Outfit-VariableFont_wght.ttf");
+}
+.home {
+  width: 73.6rem;
+  border-radius: 18px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #fff;
+  padding: 4rem;
+  /*
+  @if $breakpoint == phone-488px {
+      @media (max-width: 30.5em) {@content};
+  }*/
+}
+@media (max-width: 49em) {
+  .home {
+    margin: 0;
+  }
+}
+@media (max-width: 48em) {
+  .home {
+    width: 88rem;
+    padding: 5.71rem;
+  }
+}
+@media (max-width: 38.31em) {
+  .home {
+    width: 85rem;
+    padding: 5rem;
+  }
+}
+@media (max-width: 30.5em) {
+  .home {
+    width: 68rem;
+    padding: 0 4rem 1rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home {
+    width: 125rem;
+    /* top | left and right | bottom */
+    padding: 0 0 13.3333333333rem;
+  }
+}
+.home > hr {
+  margin-bottom: 3.2rem;
+  margin-top: 3.2rem;
+  background-color: #5F564D;
+}
+@media (max-width: 48em) {
+  .home > hr {
+    margin-bottom: 4.5714285714rem;
+    margin-top: 4.5714285714rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home > hr {
+    margin-bottom: 10.6666666667rem;
+    margin-top: 10.6666666667rem;
+  }
+}
+.home__img {
+  display: flex;
+  justify-content: center;
+}
+.home__img > img {
+  border-radius: 12px;
+  width: 65.6rem;
+  height: 30rem;
+  margin-bottom: 4rem;
+}
+@media (max-width: 48em) {
+  .home__img > img {
+    width: 76.8rem;
+    height: 42.86rem;
+  }
+}
+@media (max-width: 30.5em) {
+  .home__img > img {
+    width: 68rem;
+    height: 36rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__img > img {
+    height: 57rem;
+    width: 125rem;
+    margin-bottom: 13.3333333333rem;
+  }
+}
+.home__title {
+  display: flex;
+  gap: 2.4rem;
+  flex-direction: column;
+  margin-bottom: 3.2rem;
+}
+@media (max-width: 48em) {
+  .home__title {
+    gap: 3rem;
+    margin-bottom: 4.57rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__title {
+    gap: 8rem;
+    margin-bottom: 10.6666666667rem;
+    padding: 0 10.6666666667rem;
+  }
+}
+.home__preparation-time {
+  background-color: #FFF7FB;
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+@media (max-width: 48em) {
+  .home__preparation-time {
+    padding: 3rem;
+    gap: 2.29rem;
+    margin-bottom: 4.57rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__preparation-time {
+    padding: 8rem;
+    gap: 2.6666666667rem;
+    margin-bottom: 10.6666666667rem;
+    margin-left: 10.6666666667rem;
+    margin-right: 10.6666666667rem;
+  }
+}
+.home__preparation-time > ul {
+  padding-left: 0.8rem;
+  list-style: inside;
+}
+@media (max-width: 48em) {
+  .home__preparation-time > ul {
+    padding-left: 0.88rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__preparation-time > ul {
+    padding-left: 2.6666666667rem;
+  }
+}
+.home__preparation-time > ul > :not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+@media (max-width: 48em) {
+  .home__preparation-time > ul > :not(:last-child) {
+    margin-bottom: 0.88rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__preparation-time > ul > :not(:last-child) {
+    margin-bottom: 2.6666666667rem;
+  }
+}
+.home__preparation-time > ul > li {
+  font-family: "Oufit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 300;
+}
+.home__preparation-time > ul > li > span {
+  font-family: "Oufit SemiBold";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+.home__preparation-time > ul > li::marker {
+  color: #854632;
+}
+.home__ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+@media (max-width: 48em) {
+  .home__ingredients {
+    gap: 3.43rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__ingredients {
+    gap: 8rem;
+    margin-left: 10.6666666667rem;
+    margin-right: 10.6666666667rem;
+  }
+}
+.home__ingredients > ul {
+  list-style: inside;
+  padding-left: 0.8rem;
+}
+.home__ingredients > ul > :not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+@media (max-width: 48em) {
+  .home__ingredients > ul {
+    padding-left: 0.88rem;
+  }
+  .home__ingredients > ul > :not(:last-child) {
+    margin-bottom: 0.88rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__ingredients > ul {
+    padding-left: 2.6666666667rem;
+  }
+  .home__ingredients > ul > :not(:last-child) {
+    margin-bottom: 2.6666666667rem;
+  }
+}
+.home__ingredients > ul > li {
+  font-family: "Oufit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 300;
+}
+.home__ingredients > ul > li::marker {
+  color: #854632;
+}
+.home__instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+@media (max-width: 48em) {
+  .home__instructions {
+    gap: 3.43rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__instructions {
+    gap: 8rem;
+    margin-left: 10.6666666667rem;
+    margin-right: 10.6666666667rem;
+  }
+}
+.home__instructions > ol {
+  list-style: inside;
+  list-style-type: decimal;
+  list-style-position: outside;
+  padding-left: 0.8rem;
+}
+@media (max-width: 48em) {
+  .home__instructions > ol {
+    padding-left: 0.88rem;
+  }
+  .home__instructions > ol > :not(:last-child) {
+    margin-bottom: 0.88rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__instructions > ol {
+    padding-left: 2.6666666667rem;
+  }
+  .home__instructions > ol > :not(:last-child) {
+    margin-bottom: 2.6666666667rem;
+  }
+}
+.home__instructions > ol > li {
+  font-family: "Oufit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 300;
+  padding-inline-start: 1.6rem;
+  margin-left: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+@media (max-width: 48em) {
+  .home__instructions > ol > li {
+    padding-inline-start: 2.29rem;
+    margin-left: 2.57rem;
+    margin-bottom: 1.14rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__instructions > ol > li {
+    padding-inline-start: 5.3333333333rem;
+    margin-left: 6rem;
+    margin-bottom: 2.6666666667rem;
+  }
+}
+.home__instructions > ol > li > span {
+  font-family: "Oufit SemiBold";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 500;
+}
+.home__instructions > ol > li::marker {
+  color: #854632;
+  font-family: "Oufit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 300;
+  font-weight: 500;
+}
+.home__instructions > ol > li:last-child {
+  margin-bottom: auto;
+}
+.home__nutrition {
+  display: flex;
+  gap: 2.4rem;
+  flex-direction: column;
+  margin-bottom: 3.2rem;
+}
+@media (max-width: 48em) {
+  .home__nutrition {
+    gap: 3.43rem;
+    margin-bottom: 4.58rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__nutrition {
+    gap: 8rem;
+    margin-left: 10.6666666667rem;
+    margin-right: 10.6666666667rem;
+  }
+}
+.home__nutrition > hr {
+  margin-bottom: 1.2rem;
+  margin-top: 1.2rem;
+  background-color: #E3DDD7;
+}
+@media (max-width: 48em) {
+  .home__nutrition > hr {
+    margin-bottom: 1.71rem;
+    margin-top: 1.71rem;
+  }
+}
+@media (max-width: 23.44em) {
+  .home__nutrition > hr {
+    margin-bottom: 4;
+    margin-top: 4;
+  }
+}
+
+.nutrition-table {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto;
+}
+.nutrition-table__property:nth-last-of-type(2) {
+  border-bottom: initial;
+  padding-bottom: 0;
+}
+.nutrition-table > :nth-child(n+3) {
+  padding-top: 1.2rem;
+}
+@media (max-width: 48em) {
+  .nutrition-table > :nth-child(n+3) {
+    padding-top: 1.71rem;
+  }
+}
+.nutrition-table__property {
+  font-family: "Oufit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 300;
+  border-bottom: 1px #E3DDD7 solid;
+  padding-bottom: 1.2rem;
+  padding-left: 3.2rem;
+}
+@media (max-width: 48em) {
+  .nutrition-table__property {
+    padding-bottom: 1.71rem;
+    padding-left: 4.57rem;
+  }
+}
+.nutrition-table__quantity {
+  font-family: "Oufit Regular";
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 600;
+  color: #854632;
+  border-bottom: 1px #E3DDD7 solid;
+  padding-bottom: 1.2rem;
+  padding-left: 1.6rem;
+}
+@media (max-width: 48em) {
+  .nutrition-table__quantity {
+    padding-bottom: 1.71rem;
+    padding-left: 2.2857142857rem;
+  }
+}
+.nutrition-table__quantity:last-of-type {
+  border-bottom: initial;
+  padding-bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

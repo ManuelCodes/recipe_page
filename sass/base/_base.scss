@@ -1,0 +1,152 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+//original desktop size is 1920 x 945
+//tablet size 768 width
+//mobile size 375
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+    box-sizing: border-box;
+    //height: 100%;
+    min-height: 100%;
+
+    @include respond(tab-land) { //width < 1200?
+        font-size: 70%;
+    }
+
+    @include respond(tab-port) { //width < 900?
+        font-size: 56.25%; //1rem = 9/16 = 56.25%
+    }
+
+    @include respond(tab-port-784px) { //width < 784px?
+        //padding: 0;
+        font-size: 50%; //rem = 8/16 = 50%
+    }
+
+    @include respond(tab-prototype) { //width < 768px?
+        font-size: 43.75%; //1rem = 7/16 = 43.75%
+    }
+    @include respond(phone-613px) { //width < 613px?
+        font-size: 37.5%; //1rem = 6/16 = 37.5%
+        //1rem 7px
+        //padding: 18.29rem 10.86rem;
+        //padding: 0;
+    }
+
+    @include respond(phone-488px) { //width < 488px?
+        font-size: 31.25; //1rem = 5/16 = 31.24
+    }
+
+    @include respond(phone-prototype) { //width < 375px?
+        font-size: 18.75%; //1rem = 3/16 = 18.75%
+    }
+/*
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }*/
+}
+
+body {
+    box-sizing: border-box;
+    //background-color: $color-gray-light;
+    height: 100%;
+    /*
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;*/
+}
+
+h1 {
+    font-family: 'Young Serif Regular';
+    font-size: 40px;
+    @include respond(phone-prototype) { //width < 375px?
+        font-size: 37px;
+    }
+    line-height: 100%;
+    letter-spacing: 0px;
+    font-weight: 500;
+}
+
+h2 {
+    font-family: 'Young Serif Regular';
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: $color-brown-800;
+    font-weight: 500;
+}
+
+h3 {
+    font-family: 'Oufit SemiBold';
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: $color-rose-800;
+}
+
+p {
+    @include text-preset-p;
+    /*
+    font-family: 'Outfit Regular';
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    font-weight: 300;*/
+}
+
+
+#root {
+    height: 100%;
+    background-color: $color-stone-100;
+    padding: 12.8rem 4.8rem;
+    //width: 100%;
+    //769px - 772px
+    //tab-port-772px
+    display: flex;
+    justify-content: center;
+    
+    @include respond(tab-port-784px) { //width < 784px?
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    @include respond(tab-prototype) { //width < 768px?
+        //1rem 7px
+        padding: 18.29rem 10.86rem; 
+    }
+
+    @include respond(phone-613px) { //width < 613px?
+        //1rem 7px
+        padding: 0;
+    }
+    
+    //a los 613px se ve mal
+    /*
+    @media (max-width: 38.31em) { //width < 613px?
+        padding: 0;
+    }*/
+
+    /*
+    @if $breakpoint == phone-540px {
+        @media (max-width: 33.75em) {@content};
+    }
+
+    @if $breakpoint == phone-613px {
+        @media (max-width: 38.31em) {@content};
+    }
+*/
+    @include respond(phone-prototype) { //width < 375px?
+        //font-size: 18.75%; //1rem = 3/16 = 18.75%
+        padding: 0;
+    }
+}
+
+//76px de padding
+//4.8/76

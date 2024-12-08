@@ -1,0 +1,417 @@
+@use 'sass:math';
+
+.home {
+    width: 73.6rem;    
+    border-radius: 18px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: $color-white;
+    padding: 4rem;
+
+    @include respond(tab-port-784px) { //width < 7784px?
+        //padding: 0;
+        margin: 0;
+        //width: 73.6rem;
+        
+    }
+
+    @include respond(tab-prototype) { //width < 768px?
+        //1rem = 7px
+        width: 88rem; //target 616px width
+        padding: 5.71rem; //target 40px
+    }
+    @include respond(phone-613px) { //width < 613px?
+        //1rem = 6px
+        width: 85rem;
+        padding: 5rem;
+    }
+
+    @include respond(phone-488px) { //width < 488px?
+        //1rem = 5px
+        width: 68rem;
+        //padding: 4rem;
+        //padding-top: 0rem;
+        padding: 0 4rem 1rem;
+    }
+    @include respond(phone-488px) { //width < 488px?
+        //1rem = 6px
+        //width: 85rem;
+        //padding: 5rem;
+    }
+    /*
+    @if $breakpoint == phone-488px {
+        @media (max-width: 30.5em) {@content};
+    }*/
+    
+    @include respond(phone-prototype) { //width < 375px?
+        //1rem = 3px
+        $homeWidth: math.div(375,3); //target 375px
+        width: $homeWidth + rem;
+        //padding: 0;
+        /* top | left and right | bottom */
+        padding: 0 0 math.div(40,3) + rem;
+    }
+    &>hr {
+        margin-bottom: 3.2rem;
+        margin-top: 3.2rem;
+        background-color: $color-stone-600;
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            margin-bottom: math.div(32,7) + rem; //target 32px
+            margin-top: math.div(32,7) + rem; //target 32px
+        }
+        @include respond(phone-prototype) { //width < 375px?
+            //1rem = 3px
+            margin-bottom: math.div(32,3) + rem; //target 32px
+            margin-top: math.div(32,3) + rem; //target 32px
+        }
+    }
+    &__img {
+        display: flex;
+        justify-content: center;
+        //margin-right: auto;
+        //margin-left: auto;
+        &>img {
+            border-radius: 12px;
+            width: 65.6rem;
+            height: 30rem;
+            margin-bottom: 4rem;
+            
+            @include respond(tab-prototype) { //width < 768px?
+                //1rem = 7px
+                width: 76.8rem; //target 536px
+                height: 42.86rem; //target 300px
+            }
+            @include respond(phone-613px) { //width < 613px?
+                //1rem = 6px
+                //padding: 0;
+                //height: math.div(30,6) + rem;
+                //width: math.div(656,6) + rem;
+                //margin-left: 5rem;
+                //margin-right: 5rem;
+            }
+            @include respond(phone-488px) { //width < 488px?
+                //1rem = 5px
+                width: 68rem;
+                height: 36rem;
+            }
+
+            @include respond(phone-prototype) { //width < 375px?
+                //1rem = 3px
+                $imgHeight: math.div(171,3);
+                $imgWidth: math.div(375,3);
+                $imgMarginBottom: math.div(40,3);
+                height: $imgHeight + rem; //target 171px
+                width: $imgWidth + rem; //target 375px
+                margin-bottom: $imgMarginBottom + rem; //target 40px
+            }
+        }
+    }
+    &__title {
+        display: flex;
+        gap: 2.4rem;
+        flex-direction: column;
+        margin-bottom: 3.2rem;
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            gap: 3rem;
+            margin-bottom: 4.57rem;//target 32px
+        }
+        @include respond(phone-613px) { //width < 613px?
+            //margin-left: 5rem;
+            //margin-right: 5rem;
+        }
+        @include respond(phone-prototype) { //width < 375px?
+            //1rem = 3px
+            $titleGap: math.div(24,3);
+            $titleMarginBottom: math.div(32,3);
+            gap: $titleGap + rem; //target 24px
+            margin-bottom: $titleMarginBottom + rem; //target 32px
+            padding: 0 math.div(32,3) + rem; //target 32px
+        }
+    }
+
+    &__preparation-time {
+        background-color: $color-rose-50;
+        padding: 2.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        margin-bottom: 3.2rem;
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            padding: 3rem; //target 24px
+            gap: 2.29rem; //target 16px
+            margin-bottom: 4.57rem; //target 32px
+        }
+        @include respond(phone-613px) { //width < 613px?
+            //margin-left: 5rem;
+            //margin-right: 5rem;
+        }
+        @include respond(phone-prototype) { //width < 375px?
+            //1rem = 3px
+            $preparationTimePadding: math.div(24,3);
+            $preparationTimeGap: math.div(8,3);
+            $preparationTimeMarginBottom: math.div(32,3);
+            padding: $preparationTimePadding + rem; //target 24px
+            gap: $preparationTimeGap + rem; //target 8px
+            margin-bottom: $preparationTimeMarginBottom + rem; //target 32px
+            margin-left: math.div(32,3) + rem;
+            margin-right: math.div(32,3) + rem;
+        }
+        &>ul {
+            padding-left: .8rem;
+            @include respond(tab-prototype) { //width < 768px?
+                //1rem = 7px
+                padding-left: .88rem; //target 8px
+            }
+            @include respond(phone-prototype) { //width < 375px?
+                //1rem = 3px
+                $preparationTimePaddingLeftUl: math.div(8,3);
+                padding-left: $preparationTimePaddingLeftUl + rem; //target 8px
+            }
+            list-style: inside;
+            &>:not(:last-child) {
+                margin-bottom: .8rem;
+                @include respond(tab-prototype) { //width < 768px?
+                    //1rem = 7px
+                    margin-bottom: .88rem; //target 8px
+                }
+                @include respond(phone-prototype) { //width < 375px?
+                    //1rem = 3px
+                    $preparationTimeMarginBottomLi: math.div(8,3);
+                    margin-bottom: $preparationTimeMarginBottomLi+rem; //target 8px
+                }
+            }
+            
+            &>li {
+                @include text-preset-p;
+
+                &>span {
+                    @include text-preset-p-semibold;
+                }
+            }
+            &>li::marker {
+                color: $color-brown-800;
+            }
+        }
+    }
+
+    &__ingredients {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            gap: 3.43rem; //target 24px
+        }
+        @include respond(phone-613px) { //width < 613px?
+            //margin-left: 5rem;
+            //margin-right: 5rem;
+        }
+        @include respond(phone-prototype) { //width < 375px?
+            //1rem = 3px
+            gap: math.div(24,3) + rem;
+            margin-left: math.div(32,3) + rem;
+            margin-right: math.div(32,3) + rem;
+        }
+        &>ul {
+            list-style: inside;
+            padding-left: .8rem;
+            &>:not(:last-child) {
+                margin-bottom: .8rem;
+            }
+            @include respond(tab-prototype) { //width < 768px?
+                //1rem = 7px
+                padding-left: .88rem; //target 8px;
+                &>:not(:last-child) {
+                    margin-bottom: .88rem; //target 8px
+                }
+            }
+            @include respond(phone-prototype) { //width < 375px?
+                //1rem = 3px
+                padding-left: math.div(8,3) + rem; //target 8px;
+                &>:not(:last-child) {
+                    margin-bottom: math.div(8,3) + rem; //target 8px;
+                }
+            }
+            &>li {
+                @include text-preset-p;
+            }
+            &>li::marker {
+                color: $color-brown-800;
+            }
+        }
+    }
+
+    &__instructions {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            gap: 3.43rem; //target 24px
+        }
+        @include respond(phone-613px) { //width < 613px?
+            //margin-left: 5rem;
+            //margin-right: 5rem;
+        }
+        @include respond(phone-prototype) { //width < 375px?
+            //1rem = 3px
+            gap: math.div(24,3) + rem; //target 24px
+            margin-left: math.div(32,3) + rem;
+            margin-right: math.div(32,3) + rem;
+        }
+        &>ol {
+            list-style: inside;
+            list-style-type: decimal;
+            list-style-position: outside;
+            padding-left: .8rem;
+            @include respond(tab-prototype) { //width < 768px?
+                //1rem = 7px
+                padding-left: .88rem; //target 8px;
+                &>:not(:last-child) {
+                    margin-bottom: .88rem; //target 8px
+                }
+            }
+            @include respond(phone-prototype) { //width < 375px?
+                //1rem = 3px
+                padding-left: math.div(8,3) + rem; //target 8px;
+                &>:not(:last-child) {
+                    margin-bottom: math.div(8,3) + rem; //target 8px;
+                }
+            }
+            &>li {
+                @include text-preset-p;
+                padding-inline-start: 1.6rem;
+                margin-left: 1.8rem;
+                margin-bottom: .8rem;
+                @include respond(tab-prototype) { //width < 768px?
+                    //1rem = 7px
+                    padding-inline-start: 2.29rem; //target 16px
+                    margin-left: 2.57rem; //target 18px
+                    margin-bottom: 1.14rem; //target 8px
+                }
+                @include respond(phone-prototype) { //width < 375px?
+                    //1rem = 3px
+                    padding-inline-start: math.div(16,3) + rem; //target 16px;
+                    margin-left: math.div(18,3) + rem; //target 18px
+                    margin-bottom: math.div(8,3) + rem; //target 8px
+                }
+                &>span {
+                    @include text-preset-p-semibold;
+                }
+
+                &::marker {
+                    color: $color-brown-800;
+                    @include text-preset-p;
+                    font-weight: 500;
+                   // font-family: 'Oufit Regular', sans-serif;
+                }
+
+                &:last-child {
+                    margin-bottom: auto;
+                }
+            }
+        }
+    }
+
+    &__nutrition {
+        display: flex;
+        gap: 2.4rem;
+        flex-direction: column;
+        margin-bottom: 3.2rem;
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            gap: 3.43rem;
+            margin-bottom: 4.58rem;
+        }
+        @include respond(phone-613px) { //width < 613px?
+            //margin-left: 5rem;
+            //margin-right: 5rem;
+        }
+        @include respond(phone-prototype) { //width < 375px?
+            //1rem = 3px
+            gap: math.div(24,3) + rem; //target 24px
+            margin-left: math.div(32,3) + rem; //target 32px
+            margin-right: math.div(32,3) + rem; //target 32px
+        }
+
+        &>hr {
+            margin-bottom: 1.2rem;
+            margin-top: 1.2rem;
+            background-color: $color-stone-150;
+
+            @include respond(tab-prototype) { //width < 768px?
+                //1rem = 7px
+                margin-bottom: 1.71rem;
+                margin-top: 1.71rem;
+            }
+
+            @include respond(phone-prototype) { //width < 375px?
+                //1rem = 3px
+                margin-bottom: math.div(12,3); //target 12px
+                margin-top: math.div(12,3); //target 12px
+            }
+        }
+    }
+}
+
+.nutrition-table {
+    //background-color: orangered;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+
+    &__property:nth-last-of-type(2) {
+        border-bottom: initial;
+        padding-bottom: 0;
+    }
+
+    & > :nth-child(n+3) {
+        padding-top: 1.2rem;
+
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            padding-top: 1.71rem;
+        }
+    }
+
+    &__property {
+        @include text-preset-p;
+        border-bottom: 1px $color-stone-150 solid;
+        padding-bottom: 1.2rem;
+        padding-left: 3.2rem;
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            padding-bottom: 1.71rem;
+            padding-left: 4.57rem;
+        }
+    }
+
+    &__quantity {
+        //@include text-preset-header-h2;
+        font-family: "Oufit Regular";
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0px;
+        font-weight: 600;
+        color: $color-brown-800;
+        border-bottom: 1px $color-stone-150 solid;
+        padding-bottom: 1.2rem;
+        padding-left: 1.6rem;
+        @include respond(tab-prototype) { //width < 768px?
+            //1rem = 7px
+            $quantityPaddingLeft: math.div(16, 7);
+            padding-bottom: 1.71rem;
+            padding-left: $quantityPaddingLeft + rem;
+        }
+
+        
+        &:last-of-type {
+            border-bottom: initial;
+            padding-bottom: 0;
+        }
+    }
+}
